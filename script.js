@@ -402,12 +402,12 @@
   });
   const navLinks = $$(".wil-section-nav a");
   function updateNavigation() {
+    const mastheadHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--masthead-height")) || 56;
     let active = navLinks[0];
-    const threshold = ($("#wilSectionNav")?.getBoundingClientRect().height || 72) + 40;
-    navLinks.forEach(link => {
-      const target = hashTarget(link.hash);
-      if (target && target.getBoundingClientRect().top <= threshold) active = link;
-    });
+    const threshold = mastheadHeight + (document.querySelector('#wilSectionNav')?.offsetHeight || 56) + 24;
+    const positions = navLinks.map(link => ({link, target: hashTarget(link.hash)})).filter(item => item.target);
+    positions.sort((a,b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+    for (const item of positions) if (item.target.getBoundingClientRect().top <= threshold) active = item.link;
     if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 5) active = navLinks.at(-1);
     navLinks.forEach(link => {
       const selected = link === active;
@@ -424,6 +424,7 @@
     scrollFrame = requestAnimationFrame(() => { updateNavigation(); scrollFrame = null; });
   }, { passive: true });
   window.addEventListener("resize", updateNavigation);
+  window.addEventListener("pageshow", updateNavigation);
   function followHash() {
     const target = hashTarget(location.hash);
     if (target) scrollToTarget(target);
@@ -464,47 +465,8 @@
     }));
   }
 
-  function initialiseCountdown() {
-    const timer = $("[data-countdown-target]");
-    if (!timer) return;
-    const target = Date.parse(timer.dataset.countdownTarget);
-    const caption = $("#countdownCaption");
-    if (!Number.isFinite(target)) {
-      timer.hidden = true;
-      if (caption) caption.textContent = "Conference date to be confirmed.";
-      return;
-    }
-    let interval = null;
-    const stop = () => { if (interval !== null) window.clearInterval(interval); interval = null; };
-    const update = () => {
-      // Recalculate from the clock each tick: no accumulation of timer drift.
-      const remaining = Math.max(0, Math.floor((target - Date.now()) / 1000));
-      const values = {
-        days: Math.floor(remaining / 86400),
-        hours: Math.floor(remaining / 3600) % 24,
-        minutes: Math.floor(remaining / 60) % 60,
-        seconds: remaining % 60
-      };
-      for (const [unit, value] of Object.entries(values)) {
-        const node = $(`[data-countdown="${unit}"]`, timer);
-        if (node) node.textContent = pad(value);
-      }
-      if (remaining === 0) {
-        if (caption) caption.textContent = "The countdown has ended.";
-        stop();
-      }
-    };
-    const start = () => {
-      stop();
-      update();
-      if (Date.now() < target && !document.hidden) interval = window.setInterval(update, 1000);
-    };
-    document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
-    window.addEventListener("pagehide", stop);
-    window.addEventListener("pageshow", start);
-    start();
-  }
 
+  updateNavigation();
   buildArchives();
   buildVideos();
   $$(".wil-testimonial-carousel").forEach(carousel => initialiseRail(carousel, {
@@ -512,7 +474,6 @@
     next: ".wil-carousel-next", dots: ".wil-carousel-dots"
   }));
   initialiseSchedule();
-  initialiseCountdown();
   initialiseVideos();
   initialisePhotos();
   updateNavigation();

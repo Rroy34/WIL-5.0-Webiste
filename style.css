@@ -644,3 +644,71 @@ a, button, input { transition: background-color 180ms var(--ease-ui), color 180m
  *, *::before, *::after { transition: none !important; animation: none !important; }
  a:hover, button:hover, a:active, button:active { transform: none !important; }
 }
+
+/* Conference revision: institutional title, quiet surfaces and contiguous navigation. */
+:root { --page-bg: #EEE9E0; }
+.wil-hero-copy { grid-template-columns: minmax(0,1.25fr) minmax(200px,.7fr) minmax(240px,.8fr); gap: 24px; align-items: center; }
+.wil-hero-copy h1 { font-family: var(--font-ui); font-size: clamp(30px,3.3vw,48px); font-weight: 700; line-height: 1.15; letter-spacing: -.04em; }
+.wil-hero-copy h1 > span { font: inherit; font-size: .85em; margin: 12px 0 0; }
+.hero-tagline { font-family: var(--font-ui); font-size: 20px; font-style: normal; }
+.hero-cape { width: 100%; height: 430px; object-fit: contain; }
+.conference-date-card { padding: 24px; }
+.wil-hero-top { background: rgba(92,12,112,.92); }
+.wil-section-nav { background: var(--surface); color: var(--leadership-purple); }
+.wil-section-nav-inner { gap: 0; justify-content: stretch; }
+.wil-section-nav a { flex: 1 0 auto; justify-content: center; border-bottom: 4px solid transparent; }
+.wil-section-nav a:hover { background: var(--surface-muted); border-bottom-color: transparent; }
+.wil-section-nav a.active, .wil-section-nav a.active:hover { background: var(--surface); border-bottom-color: var(--deep-berry); }
+.wil-section-nav a:focus-visible { outline-color: var(--leadership-purple); }
+.theme-card-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.theme-card { padding: 28px; }
+.card-number { font-size: 24px; margin-bottom: 16px; }
+.theme-card h3 { font-size: 26px; }
+.theme-card h3 br { display: none; }
+.theme-card p { font-size: 15px; max-width: 44ch; }
+.theme-card > a { margin-top: auto; }
+.schedule-item { background: var(--surface); }
+.schedule-parallel a { background: var(--surface); }
+.schedule-break { background: var(--agenda-gold); }
+#agenda { background: var(--page-bg); }
+.schedule-date { padding: 16px 20px; background: var(--agenda-gold); }
+.date-card-label > span { background: var(--surface-muted) !important; }
+@media (max-width: 1050px) {
+ .wil-hero-copy { grid-template-columns: minmax(0,1.2fr) minmax(200px,.8fr); }
+ .conference-date-card { grid-column: 1/-1; max-width: none; }
+ .hero-cape { height: 360px; }
+}
+@media (max-width: 700px) {
+ .theme-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .theme-card { padding: 22px; }
+}
+@media (max-width: 480px) {
+ .wil-hero-copy { grid-template-columns: 1fr; }
+ .wil-hero-copy h1 { font-size: 32px; }
+ .hero-cape { height: 300px; }
+ .theme-card-grid { grid-template-columns: 1fr; }
+}
+
+/* Wider editorial gutters, rich gold and a prominent four-part clock. */
+:root { --agenda-gold: #D6A419; --radius-card: 10px; }
+.wrap, .committee-wrap, .wil-media-container, .wil-hero-copy { width: min(1200px, calc(100% - 112px)); }
+.wil-hero-top { padding-inline: max(56px, calc((100% - 1200px)/2)); }
+.wil-section-nav-inner { width: min(1240px, calc(100% - 80px)); }
+.conference-date-card, .theme-card, .programme-pillar, .workshop-card, .fireside-feature, .committee-card, .tier-card, .sponsor-card, .video-card { border-radius: var(--radius-card); }
+.committee-card, .tier-card { overflow: hidden; }
+.hero-primary-link, .outline-btn, .schedule-filters button, .schedule-parallel a, .wil-media-tab { border-radius: 6px; }
+.conference-countdown { gap: 6px; padding-top: 20px; }
+.conference-countdown > div { padding: 12px 2px; border: 1px solid var(--leadership-purple); border-radius: 6px; background: #FFC4D4; text-align: center; }
+.conference-countdown strong { font-size: clamp(24px,2.6vw,36px); font-weight: 700; line-height: 1.2; }
+.conference-countdown span { display: block; margin-top: 8px; font-size: 9px; letter-spacing: .03em; }
+.conference-date-card { padding: 20px; }
+.hero-primary-link { background: var(--agenda-gold); }
+.hero-primary-link:hover { background: var(--surface); }
+.schedule-date { border-radius: 6px; }
+@media (max-width: 1050px) { .conference-countdown strong { font-size: 40px; } .conference-countdown span { font-size: 11px; } }
+@media (max-width: 700px) {
+ .wrap, .committee-wrap, .wil-media-container, .wil-hero-copy { width: calc(100% - 48px); }
+ .wil-hero-top { padding-inline: 24px; }
+ .wil-section-nav-inner { width: calc(100% - 32px); }
+}
+@media (max-width: 380px) { .conference-countdown strong { font-size: 28px; } .conference-countdown span { font-size: 9px; } }

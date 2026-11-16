@@ -9,8 +9,8 @@
 <title>
    Women in Leadership 5.0 | BML Munjal University
   </title>
-<link href="style.css?v=6" rel="stylesheet"/>
-<script defer="" src="script.js?v=4">
+<link href="style.css?v=8" rel="stylesheet"/>
+<script defer="" src="script.js?v=8">
 </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -104,16 +104,7 @@
 <p class="wil-hero-kicker">
       BML MUNJAL UNIVERSITY PRESENTS
      </p>
-<h1>
-      Women in
-      <br/>
-<em>
-       Leadership
-      </em>
-<span>
-       5.0
-      </span>
-</h1>
+<h1>Women-in-Leadership<br/><span>Conference 5.0</span></h1>
 <p class="wil-hero-subtitle">
       Ambition · Action · Achievement
      </p>
@@ -134,7 +125,7 @@
        Discover the workshops
       </a>
 </div>
-</div>
+</div><img alt="Illustration of a woman standing confidently with a flowing cape" class="hero-cape" height="1536" src="assets/images/wil-cape-demo.png" width="1024"/>
 <aside aria-labelledby="conference-date-heading" class="conference-date-card">
 <p class="date-card-label" id="conference-date-heading">
       SAVE THE DATE
@@ -153,7 +144,7 @@
 <p class="conference-hours">
       9:30 AM – 6:00 PM · IST
      </p>
-<div aria-label="Countdown to 15 March 2027, 9:30 AM India Standard Time" aria-live="off" class="conference-countdown" data-countdown-target="2027-03-15T09:30:00+05:30" hidden="" role="timer">
+<div aria-label="Countdown to 15 March 2027, 9:30 AM India Standard Time" aria-live="off" class="conference-countdown" data-countdown-target="2027-03-15T09:30:00+05:30" role="timer">
 <div>
 <strong data-countdown="days">
         —
@@ -187,7 +178,7 @@
        </span>
 </div>
 </div>
-<p class="countdown-caption" id="countdownCaption">15 March 2027 · 9:30 AM IST</p>
+<p class="countdown-caption" id="countdownCaption">Countdown loading · 15 March 2027, 9:30 AM IST</p>
 <a class="date-card-link" href="#agenda">
       View the proposed schedule
       <span aria-hidden="true">
@@ -198,10 +189,9 @@
 </div>
 </header>
 <!-- SAME-PAGE SECTION NAVIGATION -->
-
 <nav aria-label="WIL section navigation" class="wil-section-nav" id="wilSectionNav">
 <div class="wil-section-nav-inner">
-<a aria-current="location" class="active" href="#conference-overview">
+<a href="#conference-overview">
      About
     </a>
 <a href="#agenda">
@@ -352,7 +342,7 @@
         </span>
 </a>
 </article>
-<article class="objective theme-card tone-purple">
+<article class="objective theme-card tone-blush">
 <span aria-hidden="true" class="card-number">
         05
        </span>
@@ -644,7 +634,6 @@
        </span>
 </div>
 </div>
-
 <div class="schedule-toolbar">
 <div aria-label="Filter the proposed schedule" class="schedule-filters" hidden="" role="group">
 <button aria-pressed="true" data-schedule-filter="all" type="button">
@@ -1733,5 +1722,54 @@
 <button aria-label="Back to top" class="backtop" hidden="" id="backtop" type="button">
    ↑
   </button>
-</body>
+<script id="conference-countdown-script">
+(() => {
+ const $ = (selector, root = document) => root.querySelector(selector);
+ const pad = number => String(number).padStart(2, "0");
+  function initialiseCountdown() {
+    const timer = $("[data-countdown-target]");
+    if (!timer) return;
+    const target = Date.parse(timer.dataset.countdownTarget);
+    const caption = $("#countdownCaption");
+    if (!Number.isFinite(target)) {
+      timer.hidden = true;
+      if (caption) caption.textContent = "Conference date to be confirmed.";
+      return;
+    }
+    timer.hidden = false;
+    if (caption) caption.textContent = "Until we come together.";
+    let interval = null;
+    const stop = () => { if (interval !== null) window.clearInterval(interval); interval = null; };
+    const update = () => {
+      // Recalculate from the clock each tick: no accumulation of timer drift.
+      const remaining = Math.max(0, Math.floor((target - Date.now()) / 1000));
+      const values = {
+        days: Math.floor(remaining / 86400),
+        hours: Math.floor(remaining / 3600) % 24,
+        minutes: Math.floor(remaining / 60) % 60,
+        seconds: remaining % 60
+      };
+      for (const [unit, value] of Object.entries(values)) {
+        const node = $(`[data-countdown="${unit}"]`, timer);
+        if (node) node.textContent = pad(value);
+      }
+      if (remaining === 0) {
+        if (caption) caption.textContent = "The countdown has ended.";
+        stop();
+      }
+    };
+    const start = () => {
+      stop();
+      update();
+      if (Date.now() < target && !document.hidden) interval = window.setInterval(update, 1000);
+    };
+    document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+    window.addEventListener("pagehide", stop);
+    window.addEventListener("pageshow", start);
+    start();
+  }
+
+ initialiseCountdown();
+})();
+</script></body>
 </html>
