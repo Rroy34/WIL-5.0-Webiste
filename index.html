@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Women in Leadership Conference at BML Munjal University" name="description"/>
-  <meta content="#174f8c" name="theme-color"/>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Women in Leadership 5.0 at BML Munjal University. Ambition, Action, Accomplishment. Explore the conference, agenda, speakers and partnership opportunities." name="description">
+  <meta content="#5C0C70" name="theme-color">
   <title>
    Women in Leadership 5.0 | BML Munjal University
   </title>
-  <link href="style.css" rel="stylesheet"/>
-  <script defer="" src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js">
-  </script>
-  <script defer="" src="script.js">
+  <link href="style.css" rel="stylesheet">
+  <script defer src="script.js">
   </script>
  </head>
  <body>
+  <a class="skip-link" href="#main-content">
+   Skip to content
+  </a>
   <!-- WIL HERO BANNER -->
   <header class="wil-hero" id="top">
    <div class="wil-hero-top">
     <a aria-label="BML Munjal University and WIL home" class="wil-hero-brand" href="#top">
-     <span aria-hidden="true" class="wil-hero-emblem">
-      <span>
-      </span>
-     </span>
-     <span class="wil-hero-university">
-      BML MUNJAL
-      <br/>
-      UNIVERSITY
-      <small>
-       A HERO GROUP INITIATIVE
-      </small>
-     </span>
-     <span aria-hidden="true" class="wil-hero-slash">
-      /
-     </span>
-     <span class="wil-hero-wil">
-      W&Imacr;L
-     </span>
+     <img alt="BML Munjal University &mdash; Women in Leadership" class="wil-brand-logo" decoding="async" fetchpriority="high" src="assets/images/BMU-WIL-Logo_2026_White.png">
     </a>
     <div aria-label="Conference partners" class="wil-hero-partners">
      <div class="wil-partner-item">
@@ -68,10 +52,9 @@
      </div>
     </div>
     <div class="wil-hero-tools">
-     <button aria-expanded="false" aria-label="Search this page" class="wil-icon-button wil-search-icon" id="wilSearchToggle" type="button">
-      &telrec;
+     <button aria-controls="wilHeroSearch" aria-expanded="false" aria-label="Search this page" class="wil-icon-button wil-search-icon" id="wilSearchToggle" type="button">
      </button>
-     <button aria-expanded="false" aria-label="Open quick navigation" class="wil-icon-button wil-menu-icon" id="wilMenuToggle" type="button">
+     <button aria-controls="wilQuickMenu" aria-expanded="false" aria-label="Open quick navigation" class="wil-icon-button wil-menu-icon" id="wilMenuToggle" type="button">
       <span>
       </span>
       <span>
@@ -80,16 +63,16 @@
       </span>
      </button>
     </div>
-    <form class="wil-hero-search" hidden="" id="wilHeroSearch">
+    <form class="wil-hero-search" hidden id="wilHeroSearch" role="search">
      <label class="visually-hidden" for="wilSearchInput">
       Search this page
      </label>
-     <input id="wilSearchInput" placeholder="Search the conference..." type="search"/>
+     <input autocomplete="off" id="wilSearchInput" placeholder="Search the conference..." required type="search">
      <button type="submit">
       Search
      </button>
     </form>
-    <nav aria-label="Quick navigation" class="wil-quick-menu" hidden="" id="wilQuickMenu">
+    <nav aria-label="Quick navigation" class="wil-quick-menu" hidden id="wilQuickMenu">
      <a href="#conference-overview">
       About the Conference
      </a>
@@ -100,7 +83,7 @@
       Keynote Speaker
      </a>
      <a href="#fireside-panel">
-      Fireside Chat &amp; Panel Discussion
+      Fireside Chat & Panel Discussion
      </a>
      <a href="#who-should-attend">
       Who Should Attend?
@@ -109,7 +92,7 @@
       Conference Agenda
      </a>
      <a href="#wil-media">
-      Photos &amp; Video Testimonials
+      Photos & Video Testimonials
      </a>
      <a href="#past-speakers">
       Past Speakers Across Editions
@@ -143,21 +126,21 @@
      Women in Leadership
     </h1>
     <p class="wil-hero-subtitle">
-     WIL 5.0 &middot; Courage. Conviction. Collaboration.
+     WIL 5.0 &middot; Ambition, Action, Accomplishment
     </p>
    </div>
   </header>
   <!-- SAME-PAGE SECTION NAVIGATION -->
   <nav aria-label="WIL section navigation" class="wil-section-nav" id="wilSectionNav">
    <div class="wil-section-nav-inner">
-    <a class="active" href="#conference-overview">
+    <a aria-current="location" class="active" href="#conference-overview">
      About
     </a>
     <a href="#agenda">
      Agenda
     </a>
     <a href="#wil-media">
-     Photos &amp; Testimonials
+     Photos & Testimonials
     </a>
     <a href="#past-speakers">
      Past Speakers
@@ -173,11 +156,16 @@
     </a>
    </div>
   </nav>
-  <main>
-   <section class="section" id="conference-overview">
+  <main id="main-content" tabindex="-1">
+   <noscript>
+    <p class="no-script-note">
+     Enable JavaScript to browse the photo archive, video testimonials and interactive media controls. Conference information and navigation are available below.
+    </p>
+   </noscript>
+   <section aria-labelledby="conference-overview-title" class="section" id="conference-overview">
     <div class="wrap about-grid">
      <div class="video-card">
-      <img alt="Women in Leadership conference gathering" src="assets/images/photo-03.jpg"/>
+      <img alt="Women in Leadership conference gathering" src="assets/images/photo-03.jpg">
       <button aria-label="Play conference teaser" class="play" type="button">
        ▶
       </button>
@@ -186,13 +174,13 @@
       <p class="eyebrow">
        WOMEN IN LEADERSHIP
       </p>
-      <h2 class="heading">
-       Courage, Conviction
-       <br/>
-       &amp; Collaboration
+      <h2 class="heading" id="conference-overview-title">
+       Ambition, Action,
+       <br>
+       Accomplishment
       </h2>
       <p>
-       Women in Leadership 5.0 is a forward-looking platform that redefines leadership for a rapidly evolving world. Rooted in courage, driven by conviction, and strengthened through collaboration, the conference brings together voices that inspire resilience, innovation and purposeful action. It is a space for meaningful dialogue, shared learning and collective growth, where ideas translate into impact.
+       Women in Leadership 5.0 is a forward-looking platform that redefines leadership for a rapidly evolving world. Inspired by ambition, driven by action and celebrating accomplishment, the conference brings together voices that inspire resilience, innovation and purposeful leadership. It is a space for meaningful dialogue, shared learning and collective growth, where ideas translate into impact.
       </p>
       <a class="outline-btn" href="#agenda">
        Explore the Conference &nearrow;
@@ -203,13 +191,13 @@
      </div>
     </div>
    </section>
-   <section class="section objectives" id="objectives">
+   <section aria-labelledby="objectives-title" class="section objectives" id="objectives">
     <div class="wrap">
-     <h2 class="blue-title">
+     <h2 class="blue-title" id="objectives-title">
       Objectives of WIL 5.0
      </h2>
      <p class="subheading centered-text">
-      Women in Leadership 5.0: Courage. Conviction. Collaboration is a platform to celebrate resilience, inspire innovation and amplify bold ideas.
+      Women in Leadership 5.0: Ambition, Action, Accomplishment is a platform to celebrate resilience, inspire innovation and amplify bold ideas.
      </p>
      <div class="objective-grid">
       <article class="objective">
@@ -247,19 +235,19 @@
      </div>
     </div>
    </section>
-   <section class="section speaker-feature-section" id="keynote-speaker">
+   <section aria-labelledby="keynote-speaker-title" class="section speaker-feature-section" id="keynote-speaker">
     <div class="wrap">
      <p class="eyebrow">
       A VOICE TO INSPIRE
      </p>
-     <h2 class="blue-title">
+     <h2 class="blue-title" id="keynote-speaker-title">
       Keynote Speaker
      </h2>
      <p class="subheading centered-text">
       An inspiring voice on leadership, innovation and purposeful change.
      </p>
      <div class="workshop-feature">
-      <img alt="Dr. Suchitra Ella" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/sucitra-1.webp"/>
+      <img alt="Dr. Suchitra Ella" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/sucitra-1.webp">
       <div>
        <h3>
         Dr. Suchitra Ella
@@ -271,20 +259,20 @@
      </div>
     </div>
    </section>
-   <section class="section speaker-panel-section" id="fireside-panel">
+   <section aria-labelledby="fireside-panel-title" class="section speaker-panel-section" id="fireside-panel">
     <div class="wrap">
      <p class="eyebrow">
       CONVERSATIONS THAT MATTER
      </p>
-     <h2 class="blue-title">
-      Fireside Chat &amp; Panel Discussion
+     <h2 class="blue-title" id="fireside-panel-title">
+      Fireside Chat & Panel Discussion
      </h2>
      <p class="subheading centered-text">
       Leadership perspectives, bold ideas and experiences shared by voices from across industries.
      </p>
      <div class="people-grid">
       <article class="person">
-       <img alt="Pallavi Dinodia Gupta" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac1.webp"/>
+       <img alt="Pallavi Dinodia Gupta" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac1.webp">
        <h3>
         Ms. Pallavi Dinodia
        </h3>
@@ -293,7 +281,7 @@
        </p>
       </article>
       <article class="person">
-       <img alt="Anita Kapur" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac3.webp"/>
+       <img alt="Anita Kapur" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac3.webp">
        <h3>
         Ms. Anita Kapur
        </h3>
@@ -302,7 +290,7 @@
        </p>
       </article>
       <article class="person">
-       <img alt="Saraswathy Vaidyanathan" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac2.webp"/>
+       <img alt="Saraswathy Vaidyanathan" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/fac2.webp">
        <h3>
         Prof. Saraswathy Vaidyanathan
        </h3>
@@ -311,7 +299,7 @@
        </p>
       </article>
       <article class="person">
-       <img alt="Saurabh Uboweja" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Saurabh-Uboweja.jpeg"/>
+       <img alt="Saurabh Uboweja" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Saurabh-Uboweja.jpeg">
        <h3>
         Mr. Saurabh Uboweja
        </h3>
@@ -320,7 +308,7 @@
        </p>
       </article>
       <article class="person">
-       <img alt="Dimple Rawat" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Dimple-Rawat.webp"/>
+       <img alt="Dimple Rawat" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Dimple-Rawat.webp">
        <h3>
         Sqn Ldr Dimple Rawat (Retd.)
        </h3>
@@ -329,7 +317,7 @@
        </p>
       </article>
       <article class="person">
-       <img alt="Aaradhana Dalmia" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Ms-Aaradhana.webp"/>
+       <img alt="Aaradhana Dalmia" loading="lazy" src="https://www.bmu.edu.in/wp-content/uploads/2026/02/Ms-Aaradhana.webp">
        <h3>
         Ms. Aaradhana Dalmia
        </h3>
@@ -340,9 +328,9 @@
      </div>
     </div>
    </section>
-   <section class="attend" id="who-should-attend">
+   <section aria-labelledby="who-should-attend-title" class="attend" id="who-should-attend">
     <div class="wrap">
-     <h2 class="heading">
+     <h2 class="heading" id="who-should-attend-title">
       Who Should Attend?
      </h2>
      <div class="pills">
@@ -385,12 +373,12 @@
      </div>
     </div>
    </section>
-   <section class="section agenda" id="agenda">
+   <section aria-labelledby="agenda-title" class="section agenda" id="agenda">
     <div class="wrap agenda-wrap">
      <p class="eyebrow">
       PLAN YOUR EXPERIENCE
      </p>
-     <h2 class="blue-title">
+     <h2 class="blue-title" id="agenda-title">
       Agenda of the Conference
      </h2>
      <p class="subheading centered-text agenda-intro">
@@ -414,7 +402,7 @@
          </div>
         </div>
         <div class="agenda-lane-controls">
-         <button aria-label="Scroll to earlier pre-summit events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled="" type="button">
+         <button aria-label="Scroll to earlier pre-summit events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled type="button">
           &larr;
          </button>
          <button aria-label="Scroll to more pre-summit events" class="agenda-arrow agenda-next" data-agenda-direction="1" type="button">
@@ -422,11 +410,11 @@
          </button>
         </div>
        </div>
-       <div aria-label="Before the Summit timeline" class="agenda-viewport" data-lenis-prevent="" tabindex="0">
+       <div aria-label="Before the Summit timeline" class="agenda-viewport" data-lenis-prevent tabindex="0">
         <div class="agenda-track">
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Conference registration" loading="lazy" src="assets/images/photo-01.jpg"/>
+           <img alt="Conference registration" loading="lazy" src="assets/images/photo-01.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -442,7 +430,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Opening note" loading="lazy" src="assets/images/photo-02.jpg"/>
+           <img alt="Opening note" loading="lazy" src="assets/images/photo-02.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -452,13 +440,13 @@
             Opening Note
            </h4>
            <p>
-            An introduction to the summit's vision for courageous, collaborative leadership.
+            An introduction to the summit&rsquo;s vision for turning ambition into action and accomplishment.
            </p>
           </div>
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Setting the conference context" loading="lazy" src="assets/images/photo-03.jpg"/>
+           <img alt="Setting the conference context" loading="lazy" src="assets/images/photo-03.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -474,7 +462,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Welcome address" loading="lazy" src="assets/images/photo-04.jpg"/>
+           <img alt="Welcome address" loading="lazy" src="assets/images/photo-04.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -512,7 +500,7 @@
          </div>
         </div>
         <div class="agenda-lane-controls">
-         <button aria-label="Scroll to earlier summit events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled="" type="button">
+         <button aria-label="Scroll to earlier summit events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled type="button">
           &larr;
          </button>
          <button aria-label="Scroll to more summit events" class="agenda-arrow agenda-next" data-agenda-direction="1" type="button">
@@ -520,11 +508,11 @@
          </button>
         </div>
        </div>
-       <div aria-label="During the Summit timeline" class="agenda-viewport" data-lenis-prevent="" tabindex="0">
+       <div aria-label="During the Summit timeline" class="agenda-viewport" data-lenis-prevent tabindex="0">
         <div class="agenda-track">
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Chancellor's address" loading="lazy" src="assets/images/photo-05.jpg"/>
+           <img alt="Chancellor's address" loading="lazy" src="assets/images/photo-05.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -540,7 +528,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Keynote address" loading="lazy" src="assets/images/photo-06.jpg"/>
+           <img alt="Keynote address" loading="lazy" src="assets/images/photo-06.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -556,7 +544,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Leadership fireside chat" loading="lazy" src="assets/images/photo-07.jpg"/>
+           <img alt="Leadership fireside chat" loading="lazy" src="assets/images/photo-07.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -572,7 +560,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Networking tea break" loading="lazy" src="assets/images/photo-08.jpg"/>
+           <img alt="Networking tea break" loading="lazy" src="assets/images/photo-08.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -588,7 +576,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Panel discussion" loading="lazy" src="assets/images/photo-09.jpg"/>
+           <img alt="Panel discussion" loading="lazy" src="assets/images/photo-09.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -604,7 +592,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Networking lunch" loading="lazy" src="assets/images/photo-10.jpg"/>
+           <img alt="Networking lunch" loading="lazy" src="assets/images/photo-10.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -620,7 +608,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="AI Confidence Lab" loading="lazy" src="assets/images/photo-11.jpg"/>
+           <img alt="AI Confidence Lab" loading="lazy" src="assets/images/photo-11.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -636,7 +624,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Recharge to Rise wellness workshop" loading="lazy" src="assets/images/photo-12.jpg"/>
+           <img alt="Recharge to Rise wellness workshop" loading="lazy" src="assets/images/photo-12.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -674,19 +662,19 @@
          </div>
         </div>
         <div class="agenda-lane-controls">
-         <button aria-label="Scroll to earlier closing events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled="" type="button">
+         <button aria-label="Scroll to earlier closing events" class="agenda-arrow agenda-prev" data-agenda-direction="-1" disabled type="button">
           &larr;
          </button>
-         <button aria-label="Scroll to more closing events" class="agenda-arrow agenda-next" data-agenda-direction="1" disabled="" type="button">
+         <button aria-label="Scroll to more closing events" class="agenda-arrow agenda-next" data-agenda-direction="1" disabled type="button">
           &rarr;
          </button>
         </div>
        </div>
-       <div aria-label="After the Summit timeline" class="agenda-viewport" data-lenis-prevent="" tabindex="0">
+       <div aria-label="After the Summit timeline" class="agenda-viewport" data-lenis-prevent tabindex="0">
         <div class="agenda-track">
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="Vote of thanks" loading="lazy" src="assets/images/photo-13.jpg"/>
+           <img alt="Vote of thanks" loading="lazy" src="assets/images/photo-13.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -702,7 +690,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="High tea" loading="lazy" src="assets/images/photo-14.jpg"/>
+           <img alt="High tea" loading="lazy" src="assets/images/photo-14.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -718,7 +706,7 @@
          </article>
          <article class="agenda-item">
           <div class="agenda-bubble">
-           <img alt="WIL alumni reunion" loading="lazy" src="assets/images/photo-15.jpg"/>
+           <img alt="WIL alumni reunion" loading="lazy" src="assets/images/photo-15.jpg">
           </div>
           <div class="agenda-copy">
            <span class="agenda-time">
@@ -742,17 +730,17 @@
      </div>
     </div>
    </section>
-   <section class="wil-media-section" id="wil-media">
+   <section aria-labelledby="wil-media-title" class="wil-media-section" id="wil-media">
     <div class="wil-media-container">
      <div class="wil-media-toolbar">
       <div aria-label="Conference media" class="wil-media-tabs" role="tablist">
-       <button aria-controls="photosPanel" aria-selected="false" class="wil-media-tab" id="photosTab" role="tab" type="button">
+       <button aria-controls="photosPanel" aria-selected="false" class="wil-media-tab" id="photosTab" role="tab" tabindex="-1" type="button">
         <span aria-hidden="true">
          ▧
         </span>
         Photos
        </button>
-       <button aria-controls="videosPanel" aria-selected="true" class="wil-media-tab is-active" id="videosTab" role="tab" type="button">
+       <button aria-controls="videosPanel" aria-selected="true" class="wil-media-tab is-active" id="videosTab" role="tab" tabindex="0" type="button">
         <span aria-hidden="true">
          ▷
         </span>
@@ -763,12 +751,12 @@
        WIL CONFERENCE ARCHIVE
       </span>
      </div>
-     <div aria-labelledby="photosTab" class="wil-media-panel" hidden="" id="photosPanel" role="tabpanel">
+     <div aria-labelledby="photosTab" class="wil-media-panel" hidden id="photosPanel" role="tabpanel" tabindex="0">
       <div class="wil-gallery-heading">
        <span class="wil-section-label">
         PAST EDITIONS
        </span>
-       <h2>
+       <h2 id="wil-media-title">
         Conference Photo Gallery
        </h2>
        <p>
@@ -778,7 +766,7 @@
       <div id="wilPhotoGallery">
       </div>
      </div>
-     <div aria-labelledby="videosTab" class="wil-media-panel" id="videosPanel" role="tabpanel">
+     <div aria-labelledby="videosTab" class="wil-media-panel" id="videosPanel" role="tabpanel" tabindex="0">
       <div class="wil-gallery-heading">
        <span class="wil-section-label">
         VIDEO ARCHIVE
@@ -787,7 +775,7 @@
         WIL Video Testimonials
        </h2>
        <p>
-        Hover over a card to reveal its artwork, then select play to watch the video in a centred player.
+        Explore perspectives from the WIL community. Select a testimonial to watch.
        </p>
       </div>
       <section class="wil-testimonial-edition" id="wil40">
@@ -800,7 +788,7 @@
           WIL 4.0 &mdash; Video Testimonials
          </h2>
          <p>
-          Video archive clips grouped provisionally until each edition is confirmed.
+          Archive clips; edition assignments are provisional.
          </p>
         </div>
         <span class="wil-edition-number">
@@ -811,7 +799,7 @@
         <button aria-label="Previous WIL 4.0 video" class="wil-carousel-arrow wil-carousel-prev" type="button">
          &larr;
         </button>
-        <div class="wil-carousel-viewport" data-lenis-prevent="">
+        <div class="wil-carousel-viewport" data-lenis-prevent>
          <div class="wil-carousel-track" id="wil4Track">
          </div>
         </div>
@@ -832,7 +820,7 @@
           Previous Editions &mdash; Video Testimonials
          </h2>
          <p>
-          Additional supplied videos; their exact edition has not been verified.
+          More voices from the WIL archive; edition details are being confirmed.
          </p>
         </div>
         <span class="wil-edition-number">
@@ -843,7 +831,7 @@
         <button aria-label="Previous archive video" class="wil-carousel-arrow wil-carousel-prev" type="button">
          &larr;
         </button>
-        <div class="wil-carousel-viewport" data-lenis-prevent="">
+        <div class="wil-carousel-viewport" data-lenis-prevent>
          <div class="wil-carousel-track" id="wil3Track">
          </div>
         </div>
@@ -857,30 +845,33 @@
      </div>
     </div>
    </section>
-   <div aria-hidden="true" aria-label="Enlarged conference photograph" aria-modal="true" class="wil-photo-modal" id="wilPhotoModal" role="dialog">
+   <dialog aria-label="Enlarged conference photograph" aria-labelledby="wilPhotoCaption" class="wil-photo-modal" id="wilPhotoModal">
     <button aria-label="Close photograph" class="wil-photo-modal-close" type="button">
      &times;
     </button>
     <button aria-label="Previous photograph" class="wil-photo-modal-prev" type="button">
      &larr;
     </button>
-    <img alt="" id="wilExpandedPhoto" src=""/>
+    <img alt id="wilExpandedPhoto">
     <button aria-label="Next photograph" class="wil-photo-modal-next" type="button">
      &rarr;
     </button>
-   </div>
-   <section class="section past-speakers-section" id="past-speakers">
+    <p class="wil-photo-caption" id="wilPhotoCaption">
+     Conference photograph
+    </p>
+   </dialog>
+   <section aria-labelledby="past-speakers-title" class="section past-speakers-section" id="past-speakers">
     <div class="wrap">
      <div class="past-speaker-archive">
       <div class="past-speaker-heading">
        <p class="eyebrow">
         LEADERS WHO INSPIRED US
        </p>
-       <h3>
+       <h2 id="past-speakers-title">
         Past Speakers Across WIL Editions
-       </h3>
+       </h2>
        <p>
-        Explore speaker and event archive photographs from WIL 4.0, 3.0, 2.0 and 1.0.
+        Explore the WIL speaker archive. Details from earlier editions are being confirmed.
        </p>
       </div>
       <div class="speaker-editions-grid" id="speakerEditionsGrid">
@@ -888,19 +879,19 @@
      </div>
     </div>
    </section>
-   <section class="section organising-committee" id="organising-committee">
+   <section aria-labelledby="organising-committee-title" class="section organising-committee" id="organising-committee">
     <div class="committee-wrap">
      <p class="eyebrow">
       THE PEOPLE BEHIND WIL
      </p>
-     <h2 class="committee-title">
+     <h2 class="committee-title" id="organising-committee-title">
       Organising
-      <br class="committee-title-break"/>
+      <br class="committee-title-break">
       Committee
      </h2>
      <div class="committee-grid">
       <article class="committee-card">
-       <img alt="Ms. Pooja Maheshwari Salwan" loading="lazy" src="assets/images/committee/committee-01.jpg"/>
+       <img alt="Ms. Pooja Maheshwari Salwan" loading="lazy" src="assets/images/committee/committee-01.jpg">
        <div class="committee-details">
         <h3>
          Ms. Pooja Maheshwari Salwan
@@ -914,7 +905,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Dr. Keerti Shukla" loading="lazy" src="assets/images/committee/committee-02.jpg"/>
+       <img alt="Dr. Keerti Shukla" loading="lazy" src="assets/images/committee/committee-02.jpg">
        <div class="committee-details">
         <h3>
          Dr. Keerti Shukla
@@ -928,7 +919,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Prof. Akriti Chandra" loading="lazy" src="assets/images/committee/committee-03.jpg"/>
+       <img alt="Prof. Akriti Chandra" loading="lazy" src="assets/images/committee/committee-03.jpg">
        <div class="committee-details">
         <h3>
          Prof. Akriti Chandra
@@ -942,7 +933,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Namokar Jain" loading="lazy" src="assets/images/committee/committee-04.jpg"/>
+       <img alt="Namokar Jain" loading="lazy" src="assets/images/committee/committee-04.jpg">
        <div class="committee-details">
         <h3>
          Namokar Jain
@@ -956,7 +947,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Mansi Singh" loading="lazy" src="assets/images/committee/committee-05.jpg"/>
+       <img alt="Mansi Singh" loading="lazy" src="assets/images/committee/committee-05.jpg">
        <div class="committee-details">
         <h3>
          Mansi Singh
@@ -970,7 +961,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Ansh Gagneja" loading="lazy" src="assets/images/committee/committee-06.jpg"/>
+       <img alt="Ansh Gagneja" loading="lazy" src="assets/images/committee/committee-06.jpg">
        <div class="committee-details">
         <h3>
          Ansh Gagneja
@@ -984,7 +975,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Rhea Singh Sud" loading="lazy" src="assets/images/committee/committee-07.jpg"/>
+       <img alt="Rhea Singh Sud" loading="lazy" src="assets/images/committee/committee-07.jpg">
        <div class="committee-details">
         <h3>
          Rhea Singh Sud
@@ -998,7 +989,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Kavya Shekhar" loading="lazy" src="assets/images/committee/committee-08.jpg"/>
+       <img alt="Kavya Shekhar" loading="lazy" src="assets/images/committee/committee-08.jpg">
        <div class="committee-details">
         <h3>
          Kavya Shekhar
@@ -1012,7 +1003,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Parth Sharma" loading="lazy" src="assets/images/committee/committee-09.jpg"/>
+       <img alt="Parth Sharma" loading="lazy" src="assets/images/committee/committee-09.jpg">
        <div class="committee-details">
         <h3>
          Parth Sharma
@@ -1026,7 +1017,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Prakriti Pankaj" loading="lazy" src="assets/images/committee/committee-10.jpg"/>
+       <img alt="Prakriti Pankaj" loading="lazy" src="assets/images/committee/committee-10.jpg">
        <div class="committee-details">
         <h3>
          Prakriti Pankaj
@@ -1040,7 +1031,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Rishita Roy" loading="lazy" src="assets/images/committee/committee-11.jpg"/>
+       <img alt="Rishita Roy" loading="lazy" src="assets/images/committee/committee-11.jpg">
        <div class="committee-details">
         <h3>
          Rishita Roy
@@ -1054,7 +1045,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Preeti" loading="lazy" src="assets/images/committee/committee-12.jpg"/>
+       <img alt="Preeti" loading="lazy" src="assets/images/committee/committee-12.jpg">
        <div class="committee-details">
         <h3>
          Preeti
@@ -1068,7 +1059,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Anya Rajan" loading="lazy" src="assets/images/committee/committee-13.jpg"/>
+       <img alt="Anya Rajan" loading="lazy" src="assets/images/committee/committee-13.jpg">
        <div class="committee-details">
         <h3>
          Anya Rajan
@@ -1082,7 +1073,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Richa Shukla" loading="lazy" src="assets/images/committee/committee-14.jpg"/>
+       <img alt="Richa Shukla" loading="lazy" src="assets/images/committee/committee-14.jpg">
        <div class="committee-details">
         <h3>
          Richa Shukla
@@ -1096,7 +1087,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Jaydeep Dubey" loading="lazy" src="assets/images/committee/committee-15.jpg"/>
+       <img alt="Jaydeep Dubey" loading="lazy" src="assets/images/committee/committee-15.jpg">
        <div class="committee-details">
         <h3>
          Jaydeep Dubey
@@ -1110,7 +1101,7 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Krishna Aditya Singh" loading="lazy" src="assets/images/committee/committee-16.jpg"/>
+       <img alt="Krishna Aditya Singh" loading="lazy" src="assets/images/committee/committee-16.jpg">
        <div class="committee-details">
         <h3>
          Krishna Aditya Singh
@@ -1126,16 +1117,16 @@
      </div>
     </div>
    </section>
-   <section class="section partnership" id="sponsorship">
+   <section aria-labelledby="sponsorship-title" class="section partnership" id="sponsorship">
     <div class="wrap">
      <p class="eyebrow">
       PARTNER WITH WIL
      </p>
-     <h2 class="blue-title">
+     <h2 class="blue-title" id="sponsorship-title">
       Sponsorship Opportunities
      </h2>
      <p class="subheading centered-text">
-      Partner with Women in Leadership 4.0 to support inclusive leadership,
+      Partner with Women in Leadership 5.0 to support inclusive leadership,
           meaningful conversations and future-ready organisations. Choose a tier
           or discuss a customised partnership with the organising team.
      </p>
@@ -1322,7 +1313,7 @@
         Alumni Reunion Sponsor
        </span>
        <span>
-        Merchandise &amp; Kit Sponsor
+        Merchandise & Kit Sponsor
        </span>
        <span>
         Custom Opportunities
@@ -1338,7 +1329,7 @@
         Let's Build Something Meaningful
        </h3>
        <p>
-        Interested in becoming a WIL 4.0 partner? Contact the team to discuss a sponsorship tier or a customised package.
+        Interested in becoming a WIL 5.0 partner? Contact the team to discuss a sponsorship tier or a customised package.
        </p>
       </div>
       <div class="sponsorship-contact-card">
@@ -1354,23 +1345,23 @@
        <a href="tel:+917905463320">
         +91 79054 63320
        </a>
-       <a class="sponsorship-email-button" href="mailto:ansh.gagneja.23bmi@bmu.edu.in?subject=WIL%204.0%20Sponsorship%20Enquiry">
+       <a class="sponsorship-email-button" href="mailto:ansh.gagneja.23bmi@bmu.edu.in?subject=WIL%205.0%20Sponsorship%20Enquiry">
         Enquire Now &nearrow;
        </a>
       </div>
      </div>
     </div>
    </section>
-   <section class="section partners-section" id="partners">
+   <section aria-labelledby="partners-title" class="section partners-section" id="partners">
     <div class="wrap">
      <div class="wil-current-partners">
       <div class="wil-partners-heading">
        <p class="eyebrow">
         OUR PARTNERS
        </p>
-       <h3>
+       <h2 id="partners-title">
         In Good Company
-       </h3>
+       </h2>
        <p>
         With appreciation for the organisations supporting the WIL platform.
        </p>
@@ -1382,7 +1373,7 @@
         </span>
         <strong>
          nasscom
-         <br/>
+         <br>
          Women in Tech
         </strong>
         <p>
@@ -1425,7 +1416,7 @@
      </a>
      <p>
       67th KM Milestone, NH-48,
-      <br/>
+      <br>
       Gurugram, Haryana, India
      </p>
      <h4>
@@ -1445,19 +1436,19 @@
      <h4>
       PROGRAMMES
      </h4>
-     <a href="#top">
+     <a href="https://www.bmu.edu.in/courses/b-tech/">
       B.Tech.
      </a>
-     <a href="#top">
+     <a href="https://www.bmu.edu.in/courses/ba-llb/">
       BA LLB (Hons.)
      </a>
-     <a href="#top">
+     <a href="https://www.bmu.edu.in/courses/bba/">
       BBA / BBA (Hons.)
      </a>
-     <a href="#top">
+     <a href="https://www.bmu.edu.in/courses/mba/">
       MBA
      </a>
-     <a href="#top">
+     <a href="https://www.bmu.edu.in/courses/ph-d/">
       PhD
      </a>
     </div>
@@ -1471,11 +1462,11 @@
      <a href="#agenda">
       Agenda
      </a>
-     <a href="#speakers">
+     <a href="#keynote-speaker">
       Speakers
      </a>
      <a href="#wil-media">
-      Photos &amp; Video Testimonials
+      Photos & Video Testimonials
      </a>
      <a href="#sponsorship">
       Sponsorship
@@ -1488,7 +1479,7 @@
     </div>
    </div>
   </footer>
-  <button aria-label="Back to top" class="backtop" id="backtop" type="button">
+  <button aria-label="Back to top" class="backtop" hidden id="backtop" type="button">
    &uarr;
   </button>
  </body>
