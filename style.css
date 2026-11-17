@@ -3509,3 +3509,44 @@ a,button,input {
 
 }
 
+
+/* People: portrait-led cards, readable labels and quiet interaction. */
+:root { --font-display: var(--font-ui); }
+h1,h2,h3,h4 { font-style: normal; letter-spacing: -.025em; }
+.hero-tagline,.fireside-reflection { font-family: var(--font-ui); font-style: normal; }
+.keynote-editorial .blue-title { font-size: clamp(34px,4vw,52px); line-height: 1.18; }
+.fireside-feature h3 { font-size: clamp(30px,3vw,42px); line-height: 1.2; }
+.wil-section-nav a,.wil-quick-menu a { font-size: 16px; }
+.wil-quick-menu a { min-height: 44px; }
+.wil-icon-button { border-radius: 50%; }
+.wil-icon-button:hover { background: var(--white); color: var(--leadership-purple); transform: translateY(-2px); }
+.wil-icon-button:hover .wil-search-icon { color: var(--leadership-purple); }
+.wil-search-icon:hover::before { border-color: var(--leadership-purple); }
+.wil-search-icon:hover::after,.wil-menu-icon:hover span { background: var(--leadership-purple); }
+.wil-video-modal { border: 2px solid var(--white); }
+.wil-video-modal video { border: 1px solid var(--white); }
+.wil-video-modal-close { border-color: var(--white); }
+.people-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 32px; }
+.person-card { overflow: hidden; border: 1px solid var(--leadership-purple); border-radius: 10px; background: var(--surface); }
+.person-card > img { width: 100%; height: 320px; object-fit: cover; object-position: top center; }
+.person-copy { display: flex; flex-direction: column; padding: 24px; min-height: 250px; }
+.person-card:nth-child(3n+1) .person-copy { background: var(--leadership-purple); color: var(--white); }
+.person-card:nth-child(3n+2) .person-copy { background: var(--agenda-gold); }
+.person-copy h3 { font-size: 25px; line-height: 1.25; margin: 0 0 12px; }
+.person-copy p { font-size: 16px; line-height: 1.5; }
+.person-copy .person-edition { font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+.person-copy a { margin-top: auto; padding-top: 16px; font-weight: 600; min-height: 44px; text-decoration: underline; text-underline-offset: 5px; }
+.person-copy a:hover { text-underline-offset: 8px; }
+.person-card:nth-child(3n+1) :focus-visible { outline-color: var(--white); }
+.people-highlights { margin-top: 32px; padding: 32px; border: 1px solid var(--leadership-purple); border-radius: 10px; background: var(--surface); }
+.people-highlights h3 { font-size: 28px; margin: 0 0 8px; }
+.highlight-note { font-size: 14px; }
+#peopleHighlight { min-height: 130px; }
+#peopleHighlight p { font-size: 22px; line-height: 1.5; max-width: 65ch; }
+.highlight-controls { display:flex; gap:12px; margin-top:20px; }
+.highlight-controls button { min-height:44px; min-width:44px; padding:8px 16px; border:1px solid var(--leadership-purple); border-radius:6px; background:var(--surface); }
+.highlight-controls button:hover { background:var(--agenda-gold); }
+#archive-media { padding-top:48px; }
+@media(max-width:900px) { .people-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .people-grid { grid-template-columns:1fr; } .person-card > img { height:360px; } .person-copy { min-height:0; } .people-highlights { padding:24px; } .wil-section-nav a { font-size:15px; } }
+@media(prefers-reduced-motion:reduce) { .wil-icon-button:hover { transform:none; } }

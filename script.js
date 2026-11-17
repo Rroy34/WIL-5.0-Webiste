@@ -478,4 +478,27 @@
   initialisePhotos();
   updateNavigation();
   if (location.hash) followHash();
+  const highlightBox = $("#peopleHighlight");
+  if (highlightBox) {
+    const slides = [...highlightBox.children];
+    const region = highlightBox.closest(".people-highlights");
+    const pause = $("#highlightPause");
+    let current = 0, paused = motion.matches;
+    const show = index => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.hidden = i !== current);
+    };
+    const updatePause = () => { pause.textContent = paused ? "Resume rotation" : "Pause rotation"; };
+    $("#highlightPrev").addEventListener("click", () => show(current - 1));
+    $("#highlightNext").addEventListener("click", () => show(current + 1));
+    pause.addEventListener("click", () => { paused = !paused; updatePause(); });
+    updatePause();
+    window.setInterval(() => {
+      if (!paused && !document.hidden && !region.matches(":hover") && !region.contains(document.activeElement)) {
+        highlightBox.setAttribute("aria-live", "off");
+        show(current + 1);
+      }
+    }, 8000);
+    region.addEventListener("focusin", () => highlightBox.setAttribute("aria-live", "polite"));
+  }
 })();
