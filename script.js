@@ -316,9 +316,46 @@
       if (target !== undefined) { event.preventDefault(); activateTab(tabs[target].id, true); }
     });
   });
+  const keywordPause = $(".community-pause");
+  keywordPause?.addEventListener("click", () => {
+    const paused = keywordPause.getAttribute("aria-pressed") !== "true";
+    keywordPause.setAttribute("aria-pressed", String(paused));
+    keywordPause.textContent = paused ? "Resume moving keywords" : "Pause moving keywords";
+    $(".community-marquee").classList.toggle("is-paused", paused);
+  });
+
+  const workshopTabs = $$(".workshop-tabs button");
+  function selectWorkshop(id, focus = false) {
+    workshopTabs.forEach(tab => {
+      const active = tab.getAttribute("aria-controls") === id;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      const panel = document.getElementById(tab.getAttribute("aria-controls"));
+      panel.hidden = !active;
+      panel.setAttribute("role", "tabpanel");
+      if (active && focus) tab.focus();
+    });
+  }
+  workshopTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectWorkshop(tab.getAttribute("aria-controls")));
+    tab.addEventListener("keydown", event => {
+      const keys = { ArrowRight: (index + 1) % workshopTabs.length,
+        ArrowLeft: (index + workshopTabs.length - 1) % workshopTabs.length,
+        Home: 0, End: workshopTabs.length - 1 };
+      if (!(event.key in keys)) return;
+      event.preventDefault();
+      selectWorkshop(workshopTabs[keys[event.key]].getAttribute("aria-controls"), true);
+    });
+  });
+  if (workshopTabs.length) {
+    $(".workshop-tabs").hidden = false;
+    selectWorkshop(workshopTabs[0].getAttribute("aria-controls"));
+  }
+
   function revealPanel(target) {
     const panel = target.closest('[role="tabpanel"]');
-    if (panel) activateTab(panel.getAttribute("aria-labelledby"));
+    if (panel?.classList.contains("workshop-card")) selectWorkshop(panel.id);
+    else if (panel) activateTab(panel.getAttribute("aria-labelledby"));
     const session = target.closest(".schedule-item");
     if (session?.hidden) setScheduleFilter("all");
     const details = target.closest("details");
@@ -378,9 +415,9 @@
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const target = hashTarget(link.hash);
     if (!target) return;
-    event.preventDefault();
+    // Keep native anchors working even if a later enhancement fails.
+    revealPanel(target);
     closePopovers();
-    if (location.hash !== link.hash) history.pushState(null, "", link.hash);
     scrollToTarget(target, true);
   });
   input?.addEventListener("input", () => input.setCustomValidity(""));
