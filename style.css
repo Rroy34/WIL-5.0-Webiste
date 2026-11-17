@@ -61,6 +61,7 @@ p { margin: 0 0 1em; }
 .blue-title, .committee-title { text-align: center; }
 .subheading { max-width: 780px; font-size: 18px; }
 .centered-text { margin: 0 auto 32px; text-align: center; }
+
 /* Header: a compact institutional masthead and an editorial conference hero. */
 .wil-hero { position: relative; isolation: isolate; overflow: clip; background: var(--leadership-purple); color: var(--white); }
 .wil-hero::after { content: ''; position: absolute; z-index: -2; inset: 0 0 0 auto; width: 30%; background: var(--deep-berry); }
@@ -712,3 +713,15 @@ a, button, input { transition: background-color 180ms var(--ease-ui), color 180m
  .wil-section-nav-inner { width: calc(100% - 32px); }
 }
 @media (max-width: 380px) { .conference-countdown strong { font-size: 28px; } .conference-countdown span { font-size: 9px; } }
+
+/* Cherry-red glass header */
+.wil-hero-top {
+  background: rgba(150, 12, 48, 0.78);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+    0 4px 18px rgba(92, 12, 112, 0.18);
+}
