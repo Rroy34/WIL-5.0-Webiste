@@ -67,6 +67,7 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+    aspect-ratio: 1.414 / 1;
     border-radius: 6px;
    }
    #spokenTestimonials figcaption {
@@ -79,6 +80,89 @@
      animation: spoken-fade 300ms ease-out;
     }
     @keyframes spoken-fade { from { opacity: 0; } to { opacity: 1; } }
+   }
+  </style>
+  <style id="committee-and-hero-update">
+   #top.wil-hero {
+    background: linear-gradient(115deg, #30083e 0%, #5c0c70 50%, #830c4f 100%);
+   }
+   #organising-committee .committee-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+   }
+   #organising-committee .committee-controls[hidden] { display: none; }
+   #organising-committee .committee-controls button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid #5c0c70;
+    border-radius: 8px;
+    background: #fff;
+    color: #5c0c70;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+   }
+   #organising-committee .committee-controls button:hover {
+    background: #5c0c70;
+    color: #fff;
+   }
+   #organising-committee :focus-visible {
+    outline: 3px solid #830c4f;
+    outline-offset: 3px;
+   }
+   #committeeRow {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 60px) / 4);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #5c0c70 #eee9e0;
+    padding: 4px 0 16px;
+   }
+   #committeeRow .committee-card {
+    scroll-snap-align: start;
+    overflow: hidden;
+    border: 1px solid #5c0c70;
+    border-radius: 10px;
+   }
+   #committeeRow .committee-card > img,
+   #committeeRow .committee-portrait-placeholder {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    object-position: center 25%;
+   }
+   #committeeRow .committee-portrait-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #e9ddec;
+    color: #5c0c70;
+   }
+   #committeeRow .committee-portrait-placeholder span { font-size: 42px; font-weight: 700; }
+   #committeeRow .committee-portrait-placeholder small { font-size: 12px; }
+   #committeeRow .committee-details { padding: 16px; }
+   #committeeRow h3 { font-size: 17px; line-height: 1.35; }
+   #committeeRow .committee-details p { font-size: 14px; line-height: 1.5; }
+   @media (min-width: 1400px) {
+    #committeeRow { grid-auto-columns: calc((100% - 80px) / 5); }
+   }
+   @media (max-width: 999px) {
+    #committeeRow { grid-auto-columns: calc((100% - 40px) / 3); }
+   }
+   @media (max-width: 640px) {
+    #committeeRow { grid-auto-columns: calc((100% - 20px) / 2); }
+   }
+   @media (max-width: 400px) {
+    #committeeRow { grid-auto-columns: 82%; }
    }
   </style>
  </head>
@@ -1410,18 +1494,7 @@
         </div>
        </div>
        <div aria-labelledby="videosTab" class="wil-media-panel" id="videosPanel" role="tabpanel" tabindex="0">
-        <div class="wil-gallery-heading">
-         <span class="wil-section-label">
-          VIDEO ARCHIVE
-         </span>
-         <h2>
-          WIL Video Testimonials
-         </h2>
-         <p>
-          Explore perspectives from the WIL community. Select a testimonial to watch.
-         </p>
-        </div>
-        <section class="wil-testimonial-edition" id="wil40">
+<section class="wil-testimonial-edition" id="wil40">
          <div class="wil-video-heading">
           <div>
            <span class="wil-section-label">
@@ -1431,7 +1504,7 @@
             WIL 4.0 — Video Testimonials
            </h2>
            <p>
-            Archive clips; edition assignments are provisional.
+            Perspectives and experiences from the WIL community. Select a testimonial to watch.
            </p>
           </div>
           <span class="wil-edition-number">
@@ -1469,9 +1542,14 @@
       Committee
      </h2>
      <p class="committee-update-note">
-      The previous edition’s organising team is shown below. WIL 5.0 committee updates will follow.
+      Dr. Kiran Khattar is Conference Co-Chair for WIL 5.0. Other members shown are from the previous edition; further updates will follow.
      </p>
-     <div class="committee-grid">
+     <div class="committee-controls" hidden>
+      <button type="button" data-committee="previous" aria-label="Previous committee members" aria-controls="committeeRow">←</button>
+      <button type="button" data-committee="pause">Pause rotation</button>
+      <button type="button" data-committee="next" aria-label="Next committee members" aria-controls="committeeRow">→</button>
+     </div>
+     <div class="committee-grid" id="committeeRow" tabindex="0" role="region" aria-label="Organising committee members; scroll horizontally to browse">
       <article class="committee-card">
        <img alt="Ms. Pooja Maheshwari Salwan" loading="lazy" src="assets/images/committee/pooja.webp"/>
        <div class="committee-details">
@@ -1487,17 +1565,13 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Dr. Keerti Shukla" loading="lazy" src="assets/images/committee/Keerti_Shukla.jpg"/>
+       <div class="committee-portrait-placeholder" role="img" aria-label="Portrait of Dr. Kiran Khattar to be added">
+        <span aria-hidden="true">KK</span>
+        <small>Portrait coming soon</small>
+       </div>
        <div class="committee-details">
-        <h3>
-         Dr. Keerti Shukla
-        </h3>
-        <p>
-         Co-Chair, WIL 4.0
-        </p>
-        <a aria-label="LinkedIn profile for Keerti Shukla" class="committee-linkedin" href="https://in.linkedin.com/in/keerti-shukla-phd-a2bbb5b7" rel="noopener noreferrer" target="_blank">
-         in
-        </a>
+        <h3>Dr. Kiran Khattar</h3>
+        <p>Conference Co-Chair, WIL 5.0</p>
        </div>
       </article>
       <article class="committee-card">
@@ -1916,21 +1990,10 @@
        </p>
       </div>
       <div class="sponsorship-contact-card">
-       <span class="contact-label">
-        SPONSORSHIP ENQUIRIES
-       </span>
-       <h4>
-        Ansh Gagneja
-       </h4>
-       <a href="mailto:ansh.gagneja.23bmi@bmu.edu.in">
-        ansh.gagneja.23bmi@bmu.edu.in
-       </a>
-       <a href="tel:+917905463320">
-        +91 79054 63320
-       </a>
-       <a class="sponsorship-email-button" href="mailto:ansh.gagneja.23bmi@bmu.edu.in?subject=WIL%205.0%20Sponsorship%20Enquiry">
-        Enquire Now ↗
-       </a>
+       <span class="contact-label">SPONSORSHIP ENQUIRIES</span>
+       <h4>Parth Sharma</h4>
+       <a href="tel:+919315891814">+91 93158 91814</a>
+       <a class="sponsorship-email-button" href="tel:+919315891814">Call for sponsorship ↗</a>
       </div>
      </div>
     </div>
@@ -2131,7 +2194,7 @@
      clearInterval(timer);
      pause.textContent = paused ? "Resume rotation" : "Pause rotation";
      if (paused || hovered || document.hidden || panel.hidden ||
-         carousel.contains(document.activeElement)) return;
+         carousel.contains(document.activeElement) && document.activeElement.matches(":focus-visible")) return;
      timer = setInterval(() => show(index + 1), 10000);
     }
 
@@ -2169,6 +2232,75 @@
     window.addEventListener("pagehide", () => clearInterval(timer));
     window.addEventListener("pageshow", updateRotation);
     updateRotation();
+   })();
+  </script>
+  <script id="committee-rotation-script">
+   (() => {
+    const row = document.getElementById("committeeRow");
+    const section = document.getElementById("organising-committee");
+    const controls = section.querySelector(".committee-controls");
+    const pause = controls.querySelector('[data-committee="pause"]');
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let paused = motion.matches;
+    let hovered = false;
+    let visible = false;
+    let timer;
+
+    function move(direction) {
+     const maximum = row.scrollWidth - row.clientWidth;
+     if (maximum <= 0) return;
+     const origin = row.getBoundingClientRect().left;
+     const positions = [...new Set([0, ...[...row.children].map(card =>
+      Math.round(Math.max(0, Math.min(maximum,
+       card.getBoundingClientRect().left - origin + row.scrollLeft)))), maximum])];
+     const next = direction > 0
+      ? positions.find(position => position > row.scrollLeft + 2)
+      : positions.slice().reverse().find(position => position < row.scrollLeft - 2);
+     const wrapping = next === undefined;
+     const left = next ?? (direction > 0 ? 0 : maximum);
+     // Reset at the loop boundary without sweeping backwards through every card.
+     row.scrollTo({ left, behavior: motion.matches || wrapping ? "instant" : "smooth" });
+    }
+
+    function schedule() {
+     clearInterval(timer);
+     pause.textContent = paused ? "Resume rotation" : "Pause rotation";
+     if (paused || hovered || !visible || document.hidden ||
+         section.contains(document.activeElement) && document.activeElement.matches(":focus-visible")) return;
+     timer = setInterval(() => move(1), 4500);
+    }
+
+    controls.hidden = false;
+    controls.addEventListener("click", event => {
+     const button = event.target.closest("button[data-committee]");
+     if (!button) return;
+     if (button.dataset.committee === "pause") paused = !paused;
+     else move(button.dataset.committee === "next" ? 1 : -1);
+     schedule();
+    });
+    [row, controls].forEach(area => {
+     area.addEventListener("mouseenter", () => { hovered = true; schedule(); });
+     area.addEventListener("mouseleave", () => { hovered = false; schedule(); });
+    });
+    row.addEventListener("pointerdown", () => {
+     row.scrollTo({ left: row.scrollLeft, behavior: "instant" });
+     schedule();
+    });
+    section.addEventListener("focusin", schedule);
+    section.addEventListener("focusout", () => setTimeout(schedule, 0));
+    document.addEventListener("visibilitychange", schedule);
+    motion.addEventListener("change", () => { paused = motion.matches; schedule(); });
+    if ("IntersectionObserver" in window) {
+     new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      schedule();
+     }).observe(row);
+    } else {
+     visible = true;
+     schedule();
+    }
+    window.addEventListener("pagehide", () => clearInterval(timer));
+    window.addEventListener("pageshow", schedule);
    })();
   </script>
  </body>
