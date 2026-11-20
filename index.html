@@ -14,6 +14,73 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- Scoped testimonial styles; the existing site stylesheet stays unchanged. -->
+  <style id="spoken-testimonial-styles">
+   #spokenTestimonials {
+    max-width: 624px;
+    margin-inline: auto;
+    color: #5c0c70;
+   }
+   #spokenTestimonials [hidden] { display: none !important; }
+   #spokenTestimonials .spoken-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+   }
+   #spokenTestimonials button {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid #5c0c70;
+    border-radius: 8px;
+    background: #fff;
+    color: #5c0c70;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease;
+   }
+   #spokenTestimonials button:hover {
+    background: #5c0c70;
+    color: #fff;
+   }
+   #spokenTestimonials button:focus-visible {
+    outline: 3px solid #830c4f;
+    outline-offset: 4px;
+   }
+   #spokenTestimonials .spoken-count {
+    min-width: 5ch;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+   }
+   #spokenTestimonials figure {
+    margin: 0;
+    padding: clamp(8px, 1.5vw, 16px);
+    border: 1px solid #5c0c70;
+    border-radius: 12px;
+    background: #fff;
+   }
+   #spokenTestimonials img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+   }
+   #spokenTestimonials figcaption {
+    padding: 12px 4px 0;
+    font-weight: 700;
+    text-align: center;
+   }
+   @media (prefers-reduced-motion: no-preference) {
+    #spokenTestimonials figure:not([hidden]) {
+     animation: spoken-fade 300ms ease-out;
+    }
+    @keyframes spoken-fade { from { opacity: 0; } to { opacity: 1; } }
+   }
+  </style>
  </head>
  <body>
   <a class="skip-link" href="#main-content">
@@ -1295,7 +1362,56 @@
           Speaker and Audience Testimonials
          </h2>
         </div>
-        <div id="wilPhotoGallery">
+        <div class="spoken-testimonials" id="spokenTestimonials"
+             role="region" aria-roledescription="carousel" aria-label="Spoken testimonials">
+         <div class="spoken-controls" hidden>
+          <button type="button" data-spoken="previous" aria-label="Previous testimonial">←</button>
+          <span class="spoken-count" aria-live="off">1 / 9</span>
+          <button type="button" data-spoken="next" aria-label="Next testimonial">→</button>
+          <button type="button" data-spoken="pause">Pause rotation</button>
+         </div>
+         <div class="spoken-slides" aria-live="off">
+         <figure class="spoken-slide">
+          <img src="assets/images/testimonials/Tanu Kashyap.png"
+               alt="Testimonial from Tanu Kashyap" loading="lazy" decoding="async"/>
+          <figcaption>Tanu Kashyap</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Dharam Rakshit.png"
+               alt="Testimonial from Dharam Rakshit" loading="lazy" decoding="async"/>
+          <figcaption>Dharam Rakshit</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Lakshmi Venkatesh.png"
+               alt="Testimonial from Lakshmi Venkatesh" loading="lazy" decoding="async"/>
+          <figcaption>Lakshmi Venkatesh</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Mamta Saikia.png"
+               alt="Testimonial from Mamta Saikia" loading="lazy" decoding="async"/>
+          <figcaption>Mamta Saikia</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Neeti Banga.png"
+               alt="Testimonial from Neeti Banga" loading="lazy" decoding="async"/>
+          <figcaption>Neeti Banga</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Neha Bansal.png"
+               alt="Testimonial from Neha Bansal" loading="lazy" decoding="async"/>
+          <figcaption>Neha Bansal</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Pooja Salwan.png"
+               alt="Testimonial from Pooja Salwan" loading="lazy" decoding="async"/>
+          <figcaption>Pooja Salwan</figcaption>
+         </figure>
+         <figure class="spoken-slide" hidden>
+          <img src="assets/images/testimonials/Shell.png"
+               alt="Testimonial from Shell" loading="lazy" decoding="async"/>
+          <figcaption>Shell</figcaption>
+         </figure>
+         </div>
         </div>
        </div>
        <div aria-labelledby="videosTab" class="wil-media-panel" id="videosPanel" role="tabpanel" tabindex="0">
@@ -2001,6 +2117,64 @@
 
  initialiseCountdown();
 })();
+  </script>
+  <script id="spoken-testimonial-script">
+   (() => {
+    const carousel = document.getElementById("spokenTestimonials");
+    const panel = document.getElementById("photosPanel");
+    const slides = [...carousel.querySelectorAll(".spoken-slide")];
+    const controls = carousel.querySelector(".spoken-controls");
+    const count = carousel.querySelector(".spoken-count");
+    const pause = carousel.querySelector('[data-spoken="pause"]');
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let index = 0;
+    let paused = reducedMotion.matches;
+    let hovered = false;
+    let timer;
+
+    function updateRotation() {
+     clearInterval(timer);
+     pause.textContent = paused ? "Resume rotation" : "Pause rotation";
+     if (paused || hovered || document.hidden || panel.hidden ||
+         carousel.contains(document.activeElement)) return;
+     timer = setInterval(() => show(index + 1), 10000);
+    }
+
+    function show(next, manual = false) {
+     index = (next + slides.length) % slides.length;
+     slides.forEach((slide, position) => { slide.hidden = position !== index; });
+     count.setAttribute("aria-live", manual ? "polite" : "off");
+     count.textContent = `${index + 1} / ${slides.length}`;
+     updateRotation();
+    }
+
+    controls.hidden = false;
+    controls.addEventListener("click", event => {
+     const button = event.target.closest("button[data-spoken]");
+     if (!button) return;
+     if (button.dataset.spoken === "pause") {
+      paused = !paused;
+      updateRotation();
+     } else {
+      show(index + (button.dataset.spoken === "next" ? 1 : -1), true);
+     }
+    });
+    carousel.addEventListener("mouseenter", () => { hovered = true; updateRotation(); });
+    carousel.addEventListener("mouseleave", () => { hovered = false; updateRotation(); });
+    carousel.addEventListener("focusin", updateRotation);
+    carousel.addEventListener("focusout", () => setTimeout(updateRotation, 0));
+    document.addEventListener("visibilitychange", updateRotation);
+    reducedMotion.addEventListener("change", () => {
+     paused = reducedMotion.matches;
+     updateRotation();
+    });
+    new MutationObserver(updateRotation).observe(panel, {
+     attributes: true, attributeFilter: ["hidden"]
+    });
+    window.addEventListener("pagehide", () => clearInterval(timer));
+    window.addEventListener("pageshow", updateRotation);
+    updateRotation();
+   })();
   </script>
  </body>
 </html>
