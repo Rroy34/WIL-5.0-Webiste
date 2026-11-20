@@ -17,7 +17,7 @@
   <!-- Scoped testimonial styles; the existing site stylesheet stays unchanged. -->
   <style id="spoken-testimonial-styles">
    #spokenTestimonials {
-    max-width: 624px;
+    max-width: 1040px;
     margin-inline: auto;
     color: #5c0c70;
    }
@@ -75,12 +75,7 @@
     font-weight: 700;
     text-align: center;
    }
-   @media (prefers-reduced-motion: no-preference) {
-    #spokenTestimonials figure:not([hidden]) {
-     animation: spoken-fade 300ms ease-out;
-    }
-    @keyframes spoken-fade { from { opacity: 0; } to { opacity: 1; } }
-   }
+
   </style>
   <style id="committee-and-hero-update">
    #top.wil-hero {
@@ -163,6 +158,65 @@
    }
    @media (max-width: 400px) {
     #committeeRow { grid-auto-columns: 82%; }
+   }
+  </style>
+  <style id="continuous-rows-and-readability">
+   #spokenTestimonials .spoken-slides,
+   #committeeRow {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: none;
+    padding: 4px 0 16px;
+   }
+   #spokenTestimonials .spoken-slide {
+    flex: 0 0 min(624px, 76%);
+    min-width: 0;
+    box-sizing: border-box;
+   }
+   #committeeRow .committee-card {
+    flex: 0 0 calc((100% - 60px) / 4);
+    box-sizing: border-box;
+   }
+   .continuous-viewport { overflow: hidden; width: 100%; padding: 4px 0; }
+   .continuous-viewport > .is-continuous {
+    overflow: visible !important;
+    will-change: transform;
+   }
+   #spokenTestimonials .spoken-slide { animation: none; }
+   #spokenTestimonials .spoken-count { font-size: 17px; }
+   .eyebrow, .wil-section-label, .session-format {
+    font-size: clamp(16px, 1.25vw, 19px);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .08em;
+   }
+   #organising-committee .eyebrow { font-size: clamp(19px, 1.7vw, 23px); }
+   .section .subheading, .committee-update-note, .archive-curation-note,
+   .schedule-heading .subheading, .workshop-note {
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.65;
+   }
+   /* Section boundaries carry the dividers; internal layouts use spacing. */
+   main > .section { border-top: 1px solid #5c0c7038; border-bottom: 0; }
+   .theme-card > a, .workshop-card .workshop-note, .conference-countdown,
+   .date-card-link, .schedule-item, .wil-video-heading, .wil-gallery-heading {
+    border-top: 0;
+    border-bottom: 0;
+   }
+   .edition-heading-rule, .speaker-edition-heading > span[aria-hidden="true"] { display: none; }
+   main hr { display: none; }
+   @media (min-width: 1400px) {
+    #committeeRow .committee-card { flex-basis: calc((100% - 80px) / 5); }
+   }
+   @media (max-width: 999px) {
+    #committeeRow .committee-card { flex-basis: calc((100% - 40px) / 3); }
+   }
+   @media (max-width: 640px) {
+    #committeeRow .committee-card { flex-basis: calc((100% - 20px) / 2); }
+   }
+   @media (max-width: 400px) {
+    #committeeRow .committee-card { flex-basis: 82%; }
    }
   </style>
  </head>
@@ -292,7 +346,7 @@
       15
       <span>
        March
-       <br/>
+        
        2027
       </span>
      </time>
@@ -391,7 +445,7 @@
       </p>
       <h2 class="heading" id="conference-overview-title">
        An equal voice.
-       <br/>
+        
        A lasting impact.
       </h2>
       <p>
@@ -477,9 +531,9 @@
        </p>
        <h2 class="blue-title" id="keynote-speaker-title">
         Ambition.
-        <br/>
+         
         Action.
-        <br/>
+         
         Achievement.
        </h2>
       </div>
@@ -626,7 +680,7 @@
       <div class="workshop-details">
         <p class="workshop-eyebrow">Workshop I · Her Finances</p>
 
-        <h3>Building Wealth<br>with Intent</h3>
+        <h3>Building Wealth with Intent</h3>
 
         <ul class="workshop-outcomes">
           <li><strong>Set goals. Build your investment plan.</strong></li>
@@ -684,7 +738,7 @@
       <div class="workshop-details">
         <p class="workshop-eyebrow">Workshop II · Her Voice</p>
 
-        <h3>Personal Brand, Presence<br>and Negotiation</h3>
+        <h3>Personal Brand, Presence and Negotiation</h3>
 
         <ul class="workshop-outcomes">
           <li><strong>Build a personal brand that reflects your value.</strong></li>
@@ -737,11 +791,11 @@
       </div>
       <p class="fireside-reflection">
        One Dream.
-       <br/>
+        
        One Dare.
-       <br/>
+        
        One Action.
-       <br/>
+        
        One Achievement.
       </p>
      </div>
@@ -1409,7 +1463,7 @@
        </p>
        <h2 id="past-speakers-title">
         Four editions.
-        <br/>
+         
         One growing community.
        </h2>
        <p>
@@ -1460,32 +1514,32 @@
                alt="Testimonial from Tanu Kashyap" loading="lazy" decoding="async"/>
           <figcaption>Tanu Kashyap</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Dharam Rakshit.png"
                alt="Testimonial from Dharam Rakshit" loading="lazy" decoding="async"/>
           <figcaption>Dharam Rakshit</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Lakshmi Venkatesh.png"
                alt="Testimonial from Lakshmi Venkatesh" loading="lazy" decoding="async"/>
           <figcaption>Lakshmi Venkatesh</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Mamta Saikia.png"
                alt="Testimonial from Mamta Saikia" loading="lazy" decoding="async"/>
           <figcaption>Mamta Saikia</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Neeti Banga.png"
                alt="Testimonial from Neeti Banga" loading="lazy" decoding="async"/>
           <figcaption>Neeti Banga</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Pooja Salwan.png"
                alt="Testimonial from Pooja Salwan" loading="lazy" decoding="async"/>
           <figcaption>Pooja Salwan</figcaption>
          </figure>
-         <figure class="spoken-slide" hidden>
+         <figure class="spoken-slide">
           <img src="assets/images/testimonials/Shell.png"
                alt="Testimonial from Shell" loading="lazy" decoding="async"/>
           <figcaption>Shell</figcaption>
@@ -1538,9 +1592,12 @@
      </p>
      <h2 class="committee-title" id="organising-committee-title">
       Organising
-      <br class="committee-title-break"/>
+       
       Committee
      </h2>
+     <p class="committee-update-note">
+      Dr. Kiran Khattar is Conference Co-Chair for WIL 5.0. Other members shown are from the previous edition; further updates will follow.
+     </p>
      <div class="committee-controls" hidden>
       <button type="button" data-committee="previous" aria-label="Previous committee members" aria-controls="committeeRow">←</button>
       <button type="button" data-committee="pause">Pause rotation</button>
@@ -1562,17 +1619,13 @@
        </div>
       </article>
       <article class="committee-card">
-       <img alt="Dr. Kiran Khattar" loading="lazy" src="assets/images/committee/kiran.jpeg"/>
+       <div class="committee-portrait-placeholder" role="img" aria-label="Portrait of Dr. Kiran Khattar to be added">
+        <span aria-hidden="true">KK</span>
+        <small>Portrait coming soon</small>
+       </div>
        <div class="committee-details">
-        <h3>
-         Dr. Kiran Khattar
-        </h3>
-        <p>
-         Co-Chair, WIL 4.0
-        </p>
-        <a aria-label="LinkedIn profile for Kiran Khattar" class="committee-linkedin" href="https://www.linkedin.com/in/kirankhattar" rel="noopener noreferrer" target="_blank">
-         in
-        </a>
+        <h3>Dr. Kiran Khattar</h3>
+        <p>Conference Co-Chair, WIL 5.0</p>
        </div>
       </article>
       <article class="committee-card">
@@ -2061,7 +2114,7 @@
      </a>
      <p>
       67th KM Milestone, NH-48,
-      <br/>
+       
       Gurugram, Haryana, India
      </p>
      <h4>
@@ -2177,131 +2230,143 @@
  initialiseCountdown();
 })();
   </script>
-  <script id="spoken-testimonial-script">
+  <script id="continuous-rows-script">
    (() => {
-    const carousel = document.getElementById("spokenTestimonials");
-    const panel = document.getElementById("photosPanel");
-    const slides = [...carousel.querySelectorAll(".spoken-slide")];
-    const controls = carousel.querySelector(".spoken-controls");
-    const count = carousel.querySelector(".spoken-count");
-    const pause = carousel.querySelector('[data-spoken="pause"]');
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let index = 0;
-    let paused = reducedMotion.matches;
-    let hovered = false;
-    let timer;
-
-    function updateRotation() {
-     clearInterval(timer);
-     pause.textContent = paused ? "Resume rotation" : "Pause rotation";
-     if (paused || hovered || document.hidden || panel.hidden ||
-         carousel.contains(document.activeElement) && document.activeElement.matches(":focus-visible")) return;
-     timer = setInterval(() => show(index + 1), 10000);
-    }
-
-    function show(next, manual = false) {
-     index = (next + slides.length) % slides.length;
-     slides.forEach((slide, position) => { slide.hidden = position !== index; });
-     count.setAttribute("aria-live", manual ? "polite" : "off");
-     count.textContent = `${index + 1} / ${slides.length}`;
-     updateRotation();
-    }
-
-    controls.hidden = false;
-    controls.addEventListener("click", event => {
-     const button = event.target.closest("button[data-spoken]");
-     if (!button) return;
-     if (button.dataset.spoken === "pause") {
-      paused = !paused;
-      updateRotation();
-     } else {
-      show(index + (button.dataset.spoken === "next" ? 1 : -1), true);
-     }
-    });
-    carousel.addEventListener("mouseenter", () => { hovered = true; updateRotation(); });
-    carousel.addEventListener("mouseleave", () => { hovered = false; updateRotation(); });
-    carousel.addEventListener("focusin", updateRotation);
-    carousel.addEventListener("focusout", () => setTimeout(updateRotation, 0));
-    document.addEventListener("visibilitychange", updateRotation);
-    reducedMotion.addEventListener("change", () => {
-     paused = reducedMotion.matches;
-     updateRotation();
-    });
-    new MutationObserver(updateRotation).observe(panel, {
-     attributes: true, attributeFilter: ["hidden"]
-    });
-    window.addEventListener("pagehide", () => clearInterval(timer));
-    window.addEventListener("pageshow", updateRotation);
-    updateRotation();
-   })();
-  </script>
-  <script id="committee-rotation-script">
-   (() => {
-    const row = document.getElementById("committeeRow");
-    const section = document.getElementById("organising-committee");
-    const controls = section.querySelector(".committee-controls");
-    const pause = controls.querySelector('[data-committee="pause"]');
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let paused = motion.matches;
-    let hovered = false;
-    let visible = false;
-    let timer;
 
-    function move(direction) {
-     const maximum = row.scrollWidth - row.clientWidth;
-     if (maximum <= 0) return;
-     const origin = row.getBoundingClientRect().left;
-     const positions = [...new Set([0, ...[...row.children].map(card =>
-      Math.round(Math.max(0, Math.min(maximum,
-       card.getBoundingClientRect().left - origin + row.scrollLeft)))), maximum])];
-     const next = direction > 0
-      ? positions.find(position => position > row.scrollLeft + 2)
-      : positions.slice().reverse().find(position => position < row.scrollLeft - 2);
-     const wrapping = next === undefined;
-     const left = next ?? (direction > 0 ? 0 : maximum);
-     // Reset at the loop boundary without sweeping backwards through every card.
-     row.scrollTo({ left, behavior: motion.matches || wrapping ? "instant" : "smooth" });
-    }
+    function initialiseRow({ track, controls, speed, centre = false, panel = null, count = null }) {
+     if (!track || !controls || track.children.length < 2) return;
+     const cards = [...track.children];
+     cards.forEach((card, index) => { card.dataset.slideNumber = index + 1; });
+     const viewport = document.createElement("div");
+     viewport.className = "continuous-viewport";
+     track.before(viewport);
+     viewport.append(track);
+     track.classList.add("is-continuous");
+     const pause = controls.querySelector('[data-spoken="pause"], [data-committee="pause"]');
+     controls.hidden = false;
+     let paused = motion.matches;
+     let hovered = false;
+     let visible = false;
+     let frame = 0;
+     let lastTime = 0;
+     let stride = 0;
+     let x = 0;
+     let pending = 0;
+     let ready = false;
+     let lastNumber = "";
 
-    function schedule() {
-     clearInterval(timer);
-     pause.textContent = paused ? "Resume rotation" : "Pause rotation";
-     if (paused || hovered || !visible || document.hidden ||
-         section.contains(document.activeElement) && document.activeElement.matches(":focus-visible")) return;
-     timer = setInterval(() => move(1), 4500);
-    }
+     function draw() {
+      if (!stride) return;
+      // Recycle only off-screen cards: no cloned links or visible end-of-loop reset.
+      while (x <= -stride) { track.append(track.firstElementChild); x += stride; }
+      while (x > 0) { track.prepend(track.lastElementChild); x -= stride; }
+      track.style.transform = `translate3d(${x}px, 0, 0)`;
+      if (count) {
+       const position = Math.round((viewport.clientWidth / 2 - x - (stride - 20) / 2) / stride);
+       const number = track.children[Math.max(0, Math.min(cards.length - 1, position))].dataset.slideNumber;
+       if (number !== lastNumber) { count.textContent = `${number} / ${cards.length}`; lastNumber = number; }
+      }
+     }
 
-    controls.hidden = false;
-    controls.addEventListener("click", event => {
-     const button = event.target.closest("button[data-committee]");
-     if (!button) return;
-     if (button.dataset.committee === "pause") paused = !paused;
-     else move(button.dataset.committee === "next" ? 1 : -1);
-     schedule();
-    });
-    [row, controls].forEach(area => {
-     area.addEventListener("mouseenter", () => { hovered = true; schedule(); });
-     area.addEventListener("mouseleave", () => { hovered = false; schedule(); });
-    });
-    row.addEventListener("pointerdown", () => {
-     row.scrollTo({ left: row.scrollLeft, behavior: "instant" });
-     schedule();
-    });
-    section.addEventListener("focusin", schedule);
-    section.addEventListener("focusout", () => setTimeout(schedule, 0));
-    document.addEventListener("visibilitychange", schedule);
-    motion.addEventListener("change", () => { paused = motion.matches; schedule(); });
-    if ("IntersectionObserver" in window) {
-     new IntersectionObserver(entries => {
+     function measure() {
+      const width = cards[0].getBoundingClientRect().width;
+      if (!width || !viewport.clientWidth) return;
+      const previous = stride;
+      stride = width + 20;
+      if (!ready) {
+       if (centre) { track.prepend(track.lastElementChild); x = (viewport.clientWidth - width) / 2 - stride; }
+       ready = true;
+      } else if (previous) x = x / previous * stride;
+      pending = 0;
+      draw();
+      schedule();
+     }
+
+     function canRun() {
+      if (!visible || document.hidden || panel?.hidden || !stride) return false;
+      if (pending) return true;
+      const focused = document.activeElement;
+      const keyboardFocus = (viewport.contains(focused) || controls.contains(focused)) && focused.matches(":focus-visible");
+      return !paused && !hovered && !keyboardFocus;
+     }
+
+     function animate(time) {
+      frame = 0;
+      if (!canRun()) { lastTime = 0; return; }
+      const seconds = lastTime ? Math.min((time - lastTime) / 1000, 0.05) : 0;
+      lastTime = time;
+      if (pending) {
+       const distance = Math.sign(pending) * Math.min(Math.abs(pending), stride * 3 * seconds);
+       x -= distance;
+       pending -= distance;
+      } else x -= speed * seconds;
+      draw();
+      frame = requestAnimationFrame(animate);
+     }
+
+     function schedule() {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      lastTime = 0;
+      pause.textContent = paused ? "Resume rotation" : "Pause rotation";
+      if (canRun()) frame = requestAnimationFrame(animate);
+     }
+
+     controls.addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      const action = button.dataset.spoken || button.dataset.committee;
+      if (action === "pause") { paused = !paused; pending = 0; }
+      else if (action === "next" || action === "previous") {
+       const distance = (action === "next" ? 1 : -1) * stride;
+       if (motion.matches) { x -= distance; draw(); }
+       else pending += distance;
+      }
+      schedule();
+     });
+     [viewport, controls].forEach(area => {
+      area.addEventListener("mouseenter", () => { hovered = true; schedule(); });
+      area.addEventListener("mouseleave", () => { hovered = false; schedule(); });
+      area.addEventListener("focusin", event => {
+       const card = event.target.closest(".committee-card");
+       if (card) {
+        const index = [...track.children].indexOf(card);
+        const left = x + index * stride;
+        if (left < 0 || left + stride - 20 > viewport.clientWidth) { x = -index * stride; draw(); }
+       }
+       schedule();
+      });
+      area.addEventListener("focusout", () => setTimeout(schedule, 0));
+     });
+     document.addEventListener("visibilitychange", schedule);
+     motion.addEventListener("change", () => { paused = motion.matches; pending = 0; schedule(); });
+     if (panel) new MutationObserver(measure).observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+     if ("ResizeObserver" in window) new ResizeObserver(measure).observe(viewport);
+     else window.addEventListener("resize", measure);
+     if ("IntersectionObserver" in window) new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       schedule();
-     }).observe(row);
-    } else {
-     visible = true;
-     schedule();
+     }).observe(viewport);
+     else visible = true;
+     window.addEventListener("pagehide", () => { cancelAnimationFrame(frame); lastTime = 0; });
+     window.addEventListener("pageshow", measure);
+     measure();
     }
-    window.addEventListener("pagehide", () => clearInterval(timer));
-    window.addEventListener("pageshow", schedule);
+
+    initialiseRow({
+     track: document.querySelector("#spokenTestimonials .spoken-slides"),
+     controls: document.querySelector("#spokenTestimonials .spoken-controls"),
+     panel: document.getElementById("photosPanel"),
+     count: document.querySelector("#spokenTestimonials .spoken-count"),
+     speed: 24,
+     centre: true
+    });
+    initialiseRow({
+     track: document.getElementById("committeeRow"),
+     controls: document.querySelector(".committee-controls"),
+     speed: 44
+    });
    })();
   </script>
  </body>
